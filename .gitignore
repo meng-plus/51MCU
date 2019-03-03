@@ -50,11 +50,14 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+#忽略文件夹
+Objects/
+Listings/
 *.lst
 *.m51
 *.__i
 *.htm
 *.lnp
 *.SBR
-*.Think
+*.uvgui*
 *.uvopt
