@@ -50,9 +50,11 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
 #忽略文件夹
 Objects/
 Listings/
+TestPro/
 *.lst
 *.m51
 *.__i
@@ -61,3 +63,4 @@ Listings/
 *.SBR
 *.uvgui*
 *.uvopt
+*.zip
