@@ -121,14 +121,14 @@ void DelayBlocking(unsigned int Time)
 //#include <intrins.h>
 extern void          _nop_     (void);
 void Delay10us()
-{
+{//跳入函数 2
     _nop_();
     _nop_();
     _nop_();
     _nop_();
     _nop_();
     _nop_();
-}
+}//跳出函数 2
 /**
   * @brief  使用定时器完成10~65535us阻塞延时
   * @note 	由于初始设定需要消耗时间 所以设置与启动分开
