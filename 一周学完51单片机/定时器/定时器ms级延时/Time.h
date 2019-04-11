@@ -8,7 +8,7 @@
 #define  __TIME_H_
 
 
-enum DelayState{Start,Stop,Wait,Ok};
+enum DelayState{Stop,Start,Wait,Ok};
 //定时器延时函数
 typedef struct
 {

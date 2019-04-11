@@ -11,8 +11,8 @@ void main()
     T0_RUN(1);//¿ª¶¨Ê±Æ÷
     while(1)
     {
-        DelayBlocking(Delay);
-        P1_1=!P1_1;
+//        DelayBlocking(Delay);
+//        P1_1=!P1_1;
         DelayNonBlocking(&DelayBlock);
         if(DelayBlock.State ==Ok)
         {
