@@ -65,7 +65,7 @@ unsigned char IndependentKeyboard()
     keyValue=!Key1;
     keyValue<<=1;
     keyValue|=!Key2;
-return keyValue;
+    return keyValue;
 }
 //按键检测
 unsigned char key_scan(KeyStruct* KeyNum)
@@ -73,13 +73,20 @@ unsigned char key_scan(KeyStruct* KeyNum)
     unsigned char keyValue=0;
     unsigned char State=KeyNum->State;
     unsigned char KeyTemp=KeyNum->Value;
+    /*******矩阵键盘读取操作******/
     keyValue =	IndependentKeyboard();//独立按键检测
+//  keyValue==0表示没有按键按下
+    /*******矩阵键盘读取操作***
+    	keyValue=GetMatrixKeyboard()
+        keyValue==17表示没有按键按下
+    如果变更键盘注意修改 CheckKey分支判断条件
+    *************************/
     switch(State)
     {
     case CheckKey:
         if(keyValue !=0)
         {
-           KeyTemp=keyValue;
+            KeyTemp=keyValue;
             State=DelayKey;
         }
         break;
@@ -91,8 +98,11 @@ unsigned char key_scan(KeyStruct* KeyNum)
         State=KeyDown;
         break;
     case KeyDown:
-        State= KeyTemp==keyValue ? KeyDown:KeyRisEdge;
-        KeyNum->lastValue=KeyTemp;
+        if(KeyTemp != keyValue)
+        {
+            State=KeyRisEdge;
+            KeyNum->lastValue= KeyTemp;
+        }
         break;
     case KeyRisEdge:
         State=CheckKey;

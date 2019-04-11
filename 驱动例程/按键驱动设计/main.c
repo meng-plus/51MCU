@@ -1,3 +1,6 @@
+/***********源码获取地址：*************
+ github   https://github.com/chengmeng2018/51MCU.git
+***************************************/
 #include <REGX52.H>
 #include <stdio.h>
 #include "Keyboard.h"
