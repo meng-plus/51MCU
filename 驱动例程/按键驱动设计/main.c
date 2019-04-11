@@ -5,13 +5,16 @@
 
 void main()
 {
-	unsigned char KeyState,Keynum;
-	unsigned char str[32];
-	Timer0Init();
-	while(1)
-	{
-		KeyState = keyScanf(&Keynum);//°´¼ü¼ì²â
-		sprintf(str,"KeyState:%d Keynum:%d \r\n ",(unsigned int)KeyState,(unsigned int)Keynum);
-	}
+    KeyStruct KeyNum;
+    unsigned char KeyState;
+    unsigned char str[32];
+    while(1)
+    {
+        KeyState = key_scan(&KeyNum);//°´¼ü¼ì²â
+        if(KeyState==KeyFallEdge)
+        {
+            sprintf(str,"KeyState:%d Keynum:%d \r\n ",(unsigned int)KeyState,(unsigned int)(KeyNum.Value));
+        }
+    }
 
 }
