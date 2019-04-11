@@ -2,7 +2,7 @@
 // File Name: Time.h
 // Author: ÃÉÃÉplus
 // Date: 2019Äê4ÔÂ6ÈÕ
-// Version: V1.0
+// Version: V1.1
 
 #include "Time.h"
 
@@ -65,32 +65,43 @@ void TimeInit(unsigned int Reload)
 //***************************/
 void DelayNonBlocking(DelayTypedef* DelayStruct)
 {
-    if(DelayStruct->State ==Start)
+    switch(DelayStruct->State)
     {
+    case Stop:
+        return;
+        break;
+    case Start:
         DelayStruct->StartMs=SystemTick;
         DelayStruct->EndMs = DelayStruct->StartMs+DelayStruct->DelayMs;
-    }
-    if( DelayStruct->EndMs > DelayStruct->StartMs)
-    {
-        if( SystemTick > DelayStruct->EndMs)
+        DelayStruct->State=Wait;
+        break;
+    case Wait:
+        if( DelayStruct->EndMs > DelayStruct->StartMs)
         {
-            DelayStruct->State=Ok;
+            if( SystemTick > DelayStruct->EndMs)
+            {
+                DelayStruct->State=Ok;
+            }
+            else
+            {
+                DelayStruct->State=Wait;
+            }
         }
         else
         {
-            DelayStruct->State=Wait;
+            if( SystemTick<DelayStruct->StartMs && SystemTick > DelayStruct->EndMs)
+            {
+                DelayStruct->State=Ok;
+            }
+            else
+            {
+                DelayStruct->State=Wait;
+            }
         }
-    }
-    else
-    {
-        if( SystemTick<DelayStruct->StartMs && SystemTick > DelayStruct->EndMs)
-        {
-            DelayStruct->State=Ok;
-        }
-        else
-        {
-            DelayStruct->State=Wait;
-        }
+        break;
+    case Ok:
+            DelayStruct->State =Stop;
+        break;
     }
 }
 /****************************

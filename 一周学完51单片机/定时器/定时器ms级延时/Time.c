@@ -102,10 +102,7 @@ void DelayNonBlocking(DelayTypedef* DelayStruct)
     case Ok:
             DelayStruct->State =Stop;
         break;
-
     }
-
-
 }
 /****************************
 //Function Name:  ms¼¶ÑÓÊ±º¯Êý
