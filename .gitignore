@@ -55,6 +55,8 @@ dkms.conf
 Objects/
 Listings/
 TestPro/
+
+#忽略文件类型
 *.lst
 *.m51
 *.__i
@@ -62,5 +64,4 @@ TestPro/
 *.lnp
 *.SBR
 *.uvgui*
-*.uvopt
 *.zip
