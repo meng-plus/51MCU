@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "lcd1602.h": "c",
+        "regx52.h": "c"
+    }
+}
