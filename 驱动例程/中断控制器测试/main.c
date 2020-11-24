@@ -5,7 +5,7 @@ void main()
 {
     ES = 1;                     //使能串口中断
     EA = 1;
-RI=0;
+	RI=0;
 	TI=0;
 	RI=1;
 	while(1)
