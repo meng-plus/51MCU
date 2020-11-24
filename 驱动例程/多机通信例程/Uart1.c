@@ -4,7 +4,7 @@
 // Date:20200821
 // Description:  Uart0为下载端口 提供代码debug日志
 #include "STC8G_USER.H"
-#include "intrins.h"
+//#include "intrins.h"
 
 
 #include "MultiSystem_UART.h"

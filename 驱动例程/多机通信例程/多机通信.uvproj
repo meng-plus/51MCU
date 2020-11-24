@@ -402,14 +402,19 @@
               <FilePath>.\MultiSystem_UART.c</FilePath>
             </File>
             <File>
-              <FileName>MultiSystem_UART.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\MultiSystem_UART.h</FilePath>
-            </File>
-            <File>
               <FileName>Afx.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Afx.h</FilePath>
+            </File>
+            <File>
+              <FileName>SelSignal.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SelSignal.c</FilePath>
+            </File>
+            <File>
+              <FileName>ModBusSlave.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ModBusSlave.c</FilePath>
             </File>
           </Files>
         </Group>
