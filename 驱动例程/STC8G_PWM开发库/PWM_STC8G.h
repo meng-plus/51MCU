@@ -19,6 +19,12 @@ typedef struct _PWMODDSTRUCT
 	unsigned  char  volatile  IF;
 	unsigned  char  volatile  FDCR;
 }*PWMOddTypedef;
+/*PWM0~5 MINI*/
+typedef struct _PWMMINISTRUCT
+{
+	unsigned  int  volatile  C;
+	unsigned  char  volatile  CKS;
+}*PWMMiniTypedef;
 
 typedef struct _PWMPINSTRUCT
 {

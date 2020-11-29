@@ -56,28 +56,28 @@ void ModBusAnalysis(CModBus* lpmodbus)
     break;
   }
 }
-//RTU模式
-//【地址】【功能码】【数据量】【数据1】【…】【数据n】【CRC低字节】【CRC高字节】
-uint16_t RTU_CalcCrc(const uint8_t *chData,uint8_t uNo)/*数据长度*/
-{
-  uint16_t crc = 0xffff;
-  uint16_t i, j;
-  for (i = 0; i < uNo; i++)
-  {
-    crc ^= chData[i];
-    for (j = 0; j < 8; j++)
-    {
-      if (crc & 1)
-      {
-        crc >>= 1;
-        crc ^= 0xA001;
-      }
-      else
-        crc >>= 1;
-    }
-  }
-  return (crc);
-}
+	//RTU模式
+	//【地址】【功能码】【数据量】【数据1】【…】【数据n】【CRC低字节】【CRC高字节】
+	uint16_t RTU_CalcCrc(const uint8_t *chData,uint8_t uNo)/*数据长度*/
+	{
+	  uint16_t crc = 0xffff;
+	  uint16_t i, j;
+	  for (i = 0; i < uNo; i++)
+	  {
+		crc ^= chData[i];
+		for (j = 0; j < 8; j++)
+		{
+		  if (crc & 1)
+		  {
+			crc >>= 1;
+			crc ^= 0xA001;
+		  }
+		  else
+			crc >>= 1;
+		}
+	  }
+	  return (crc);
+	}
 //开关	U39	0x03,0x06	0x0000
 //周期	U39	0x03,0x06	0x0001
 //脉宽	U39	0x03,0x06	0x0007
